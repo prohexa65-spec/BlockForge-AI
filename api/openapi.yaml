@@ -2,7 +2,7 @@ openapi: 3.1.0
 info:
   title: BlockForge Universal API
   version: 1.0.0
-  description: Provider-neutral API for repository discovery, JSON validation, and add-on project proposals.
+  description: Provider-neutral API for repository discovery and JSON syntax validation.
 servers:
   - url: https://YOUR-API-HOST.example
 security:
@@ -34,7 +34,7 @@ paths:
               properties:
                 name:
                   type: string
-                  enum: [list_repo_files, read_repo_file, validate_json, create_addon_project]
+                  enum: [list_repo_files, read_repo_file, validate_json]
                 arguments:
                   type: object
       responses:
