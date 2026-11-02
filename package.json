@@ -1,0 +1,11 @@
+{
+  "name": "blockforge-ai",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Mobile-first Minecraft Bedrock add-on creation toolkit",
+  "scripts": {
+    "check": "node --check web-app/app.js && node --check src/core/uuid.js && node --check src/core/manifest.js && node --check src/core/validate.js",
+    "validate": "npm run check"
+  }
+}
