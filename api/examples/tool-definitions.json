@@ -29,34 +29,6 @@
         "required": ["content"],
         "additionalProperties": false
       }
-    },
-    {
-      "name": "submit_project_for_review",
-      "description": "Submit a proposed project file set for validation and human review. The service creates a separate proposal branch and pull request; it never merges.",
-      "input_schema": {
-        "type": "object",
-        "properties": {
-          "project_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,39}$" },
-          "title": { "type": "string", "maxLength": 100 },
-          "summary": { "type": "string", "maxLength": 2000 },
-          "files": {
-            "type": "array",
-            "minItems": 1,
-            "maxItems": 40,
-            "items": {
-              "type": "object",
-              "properties": {
-                "path": { "type": "string" },
-                "content": { "type": "string" }
-              },
-              "required": ["path", "content"],
-              "additionalProperties": false
-            }
-          }
-        },
-        "required": ["project_id", "title", "files"],
-        "additionalProperties": false
-      }
     }
   ]
 }
