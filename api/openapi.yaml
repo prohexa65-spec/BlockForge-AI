@@ -1,0 +1,54 @@
+openapi: 3.1.0
+info:
+  title: BlockForge Universal API
+  version: 1.0.0
+  description: Provider-neutral API for repository discovery and JSON syntax validation.
+servers:
+  - url: https://YOUR-API-HOST.example
+security:
+  - bearerAuth: []
+paths:
+  /v1/health:
+    get:
+      security: []
+      summary: Health check
+      responses:
+        "200":
+          description: API is running
+  /v1/tools:
+    get:
+      summary: List available tools
+      responses:
+        "200":
+          description: Tool definitions
+  /v1/tools/call:
+    post:
+      summary: Execute a BlockForge tool
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, arguments]
+              properties:
+                name:
+                  type: string
+                  enum: [list_repo_files, read_repo_file, validate_json]
+                arguments:
+                  type: object
+      responses:
+        "200":
+          description: Tool result
+        "400":
+          description: Invalid request
+        "401":
+          description: Unauthorized
+        "422":
+          description: Validation failed
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: API key
