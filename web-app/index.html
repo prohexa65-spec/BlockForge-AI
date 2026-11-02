@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <meta name="description" content="Mobile-friendly Minecraft Bedrock pack manifest builder.">
+  <title>BlockForge AI — Pack Builder</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand-mark">B</div>
+    <div><p class="eyebrow">BEDROCK CREATOR TOOLKIT</p><h1>BlockForge <span>AI</span></h1></div>
+    <span class="version">v0.1</span>
+  </header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">START BUILDING</p>
+      <h2>Your add-on starts here.</h2>
+      <p>Create matching Behavior Pack and Resource Pack manifests. More generators are on the roadmap.</p>
+    </section>
+    <section class="panel">
+      <h3>Pack details</h3>
+      <label>Project name<input id="name" maxlength="48" value="My First Add-on" autocomplete="off"></label>
+      <label>Description<textarea id="description" rows="3" maxlength="180">Created with BlockForge AI.</textarea></label>
+      <div class="two">
+        <label>Pack version<input id="version" value="1.0.0" inputmode="numeric"></label>
+        <label>Minimum engine version<input id="engine" value="1.20.0" inputmode="numeric"></label>
+      </div>
+      <button id="generate" type="button">Generate manifests</button>
+      <p class="hint">Use a version format like 1.0.0. Choose a minimum engine version supported by your target Minecraft release.</p>
+    </section>
+    <section class="panel">
+      <div class="result-head"><h3>Generated files</h3><span id="status" class="status">Not generated</span></div>
+      <div class="file-row"><div><strong>Behavior Pack</strong><small>behavior_pack/manifest.json</small></div><button class="secondary" data-download="bp" disabled>Download</button></div>
+      <pre id="bp-output" aria-label="Behavior pack JSON">Generate a project to see its manifest.</pre>
+      <div class="file-row"><div><strong>Resource Pack</strong><small>resource_pack/manifest.json</small></div><button class="secondary" data-download="rp" disabled>Download</button></div>
+      <pre id="rp-output" aria-label="Resource pack JSON">Generate a project to see its manifest.</pre>
+      <div id="validation" class="validation" aria-live="polite">Validation results will appear here.</div>
+    </section>
+    <section class="note"><strong>Next up:</strong> item, block, friendly entity, recipe, texture, sound, and project export tools.</section>
+  </main>
+  <footer>BlockForge AI · Community-built toolkit · Always test packs in a separate world.</footer>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
